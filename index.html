@@ -1,0 +1,136 @@
+export default function CoffeeShopLanding() {
+  return (
+    <div className="min-h-screen bg-[#f8f3ee] text-[#3b2a1f] font-sans">
+      {/* Hero */}
+      <section
+        className="h-screen bg-cover bg-center flex items-center justify-center relative"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        <div className="relative z-10 text-center px-6 max-w-3xl">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            AROMA COFFEE
+          </h1>
+          <p className="text-lg md:text-2xl text-gray-200 mb-8">
+            Свежесваренный кофе, уютная атмосфера и десерты ручной работы
+          </p>
+
+          <a
+            href="#menu"
+            className="inline-block bg-[#c08b5c] hover:bg-[#a87447] text-white px-8 py-4 rounded-2xl text-lg transition shadow-lg"
+          >
+            Смотреть меню
+          </a>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+        <div>
+          <h2 className="text-4xl font-bold mb-6">О нашей кофейне</h2>
+          <p className="text-lg leading-8 text-[#5a4638] mb-4">
+            Мы готовим кофе из зерен свежей обжарки и создаем место, куда
+            хочется возвращаться снова и снова.
+          </p>
+          <p className="text-lg leading-8 text-[#5a4638]">
+            Утренний капучино, вечерний латте или десерт к встрече с друзьями —
+            у нас всегда тепло и вкусно.
+          </p>
+        </div>
+
+        <img
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop"
+          alt="Coffee"
+          className="rounded-3xl shadow-2xl object-cover h-[500px] w-full"
+        />
+      </section>
+
+      {/* Menu */}
+      <section id="menu" className="bg-white py-24 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-14">Популярные напитки</h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Капучино',
+                price: '120 ₴',
+                image:
+                  'https://images.unsplash.com/photo-1497636577773-f1231844b336?q=80&w=1200&auto=format&fit=crop',
+              },
+              {
+                name: 'Латте',
+                price: '135 ₴',
+                image:
+                  'https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=1200&auto=format&fit=crop',
+              },
+              {
+                name: 'Эспрессо',
+                price: '90 ₴',
+                image:
+                  'https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1200&auto=format&fit=crop',
+              },
+            ].map((item) => (
+              <div
+                key={item.name}
+                className="bg-[#f8f3ee] rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition"
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="h-72 w-full object-cover"
+                />
+
+                <div className="p-6">
+                  <h3 className="text-2xl font-semibold mb-2">{item.name}</h3>
+                  <p className="text-[#c08b5c] text-xl font-bold">
+                    {item.price}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="py-24 px-6 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-14">Атмосфера</h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            'https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1200&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1200&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop',
+          ].map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt="Gallery"
+              className="rounded-3xl h-80 w-full object-cover shadow-lg"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="bg-[#3b2a1f] text-white py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">Ждем вас каждый день</h2>
+
+          <p className="text-xl mb-3">г. Каменское, Центральная улица 12</p>
+          <p className="text-xl mb-3">+380 (99) 123-45-67</p>
+          <p className="text-xl mb-10">08:00 – 22:00</p>
+
+          <button className="bg-[#c08b5c] hover:bg-[#a87447] px-8 py-4 rounded-2xl text-lg transition shadow-lg">
+            Забронировать столик
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
